@@ -1,12 +1,12 @@
 package com.w2w.lastpass.client;
 
-import com.w2w.lastpass.client.infrastructure.LastPassCli;
+import com.w2w.lastpass.client.infrastructure.LastPassClient;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class LastPassClientProviderTest {
+class LastPassClientClientProviderTest {
 
     private LastPassClientProvider lastPassClientProvider;
 
@@ -21,7 +21,7 @@ class LastPassClientProviderTest {
         //given
 
         //when
-        LastPassCli result = lastPassClientProvider.createClient();
+        LastPassClient result = lastPassClientProvider.createClient();
         //then
         assertThat(result).isNotNull();
     }
