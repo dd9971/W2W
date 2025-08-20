@@ -1,10 +1,9 @@
 package com.w2w.lastpass.client;
 
 import com.w2w.lastpass.client.infrastructure.LastPassClient;
-import org.springframework.context.annotation.Primary;
-import org.springframework.web.context.annotation.ApplicationScope;
+import org.springframework.stereotype.Component;
 
-@ApplicationScope
-@Primary
+@Component
 public class LastPassCliClient implements LastPassClient {
+
 }
