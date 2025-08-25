@@ -14,6 +14,7 @@ class InventorySynchronizationFacadeTest {
     @BeforeEach
     void setUp() {
         inventorySynchronizationFacade = new InventorySynchronizationFacade(
+                null,
                 null
         );
     }

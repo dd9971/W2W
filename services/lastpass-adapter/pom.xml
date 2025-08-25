@@ -8,6 +8,14 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+<!--        <maven.compiler.release>21</maven.compiler.release>-->
+<!--        <java.version>21</java.version>-->
+<!--        <spring.boot.version>3.5.4</spring.boot.version>-->
+    </properties>
+
+
+
     <artifactId>lastpass-adapter</artifactId>
     <name>W2W LastPass Adapter</name>
 
