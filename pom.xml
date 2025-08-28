@@ -15,6 +15,7 @@
     </modules>
 
     <properties>
+        <maven.compiler.release>21</maven.compiler.release>
         <java.version>21</java.version>
         <spring.boot.version>3.5.4</spring.boot.version>
     </properties>
