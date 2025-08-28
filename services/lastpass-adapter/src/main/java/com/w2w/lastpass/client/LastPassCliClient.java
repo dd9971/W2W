@@ -14,11 +14,7 @@ public class LastPassCliClient implements LastPassClient {
         this.runner = runner;
     }
 
-    public String listAllItems() {
-        try {
+    public String listAllItems() throws IOException {
             return runner.execute(CliCommand.LIST_ALL_ITEMS.getCommand());
-        } catch (IOException e) {
-            throw new LastPassClientException("", e);
-        }
     }
 }

@@ -24,12 +24,15 @@ public class JsonReader implements Reader {
     }
 
     @Override
-    public List<DetailedItem> parseSingleOutput(String outputString) {
-        try {
-            return objectMapper.readValue(outputString, new TypeReference<List<DetailedItem>>() {});
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException("Failed to parse inventory output", e);
-        }
+    public DetailedItem parseSingleOutput(String outputString) throws JsonProcessingException {
+            List<DetailedItem> items = objectMapper.readValue(outputString, new TypeReference<List<DetailedItem>>() {});
+            if (items.isEmpty()) {
+                throw new JsonReaderException("No DetailedItem found in the output");
+            }
+            if (items.size() > 1) {
+                throw new JsonReaderException("Multiple DetailedItem found in the output");
+            }
+            return items.get(0);
     }
 
     @Override

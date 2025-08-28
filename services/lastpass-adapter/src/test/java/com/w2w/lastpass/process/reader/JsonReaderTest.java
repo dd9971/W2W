@@ -1,5 +1,6 @@
 package com.w2w.lastpass.process.reader;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.w2w.lastpass.synchronization.InventoryItem;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,7 +18,7 @@ class JsonReaderTest {
 
     @Test
     @DisplayName("Should map JSON data to a inventory detailed items")
-    void test01() {
+    void test01() throws JsonProcessingException {
         //given
         var userName = "user_test_name";
         var name = "test_name";
@@ -42,10 +43,10 @@ class JsonReaderTest {
         //when
         var result = reader.parseSingleOutput(jsonData);
         //then
-        assertThat(result).isNotEmpty();
-        assertThat(result.getFirst().getUsername()).isEqualTo(userName);
-        assertThat(result.getFirst().getName()).isEqualTo(name);
-        assertThat(result.getFirst().getPassword()).isEqualTo(password);
+        assertThat(result).isNotNull();
+        assertThat(result.getUsername()).isEqualTo(userName);
+        assertThat(result.getName()).isEqualTo(name);
+        assertThat(result.getPassword()).isEqualTo(password);
     }
 
     @Test
