@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -8,13 +8,15 @@ import { Component } from '@angular/core';
   styleUrl: './task.css'
 })
 export class TaskComponent {
-  tasks: Array<string> = [];
+  syncInProgress = signal(false);
 
-  constructor() {
-    this.tasks.push('test_name');
-  }
+  startInventorySync() {
+    console.log('Inventory synchronization started');
+    this.syncInProgress.set(true);
 
-  addTask(name: string) {
-    this.tasks.push(name);
+    setTimeout(() => {
+      this.syncInProgress.set(false);
+      console.log('Inventory synchronization finished');
+    }, 3000);
   }
 }
