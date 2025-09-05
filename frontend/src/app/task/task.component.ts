@@ -1,22 +1,24 @@
 import { Component, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './task.html',
-  styleUrl: './task.css'
+  styleUrls: ['./task.css'],
 })
 export class TaskComponent {
   syncInProgress = signal(false);
 
-  startInventorySync() {
-    console.log('Inventory synchronization started');
-    this.syncInProgress.set(true);
+  constructor(private http: HttpClient) {}
 
-    setTimeout(() => {
-      this.syncInProgress.set(false);
-      console.log('Inventory synchronization finished');
-    }, 3000);
+  startInventorySync() {
+    this.syncInProgress.set(true);
+    this.http.post('/api/inventory/sync', {}).subscribe({
+      next: () => this.syncInProgress.set(false),
+      error: () => this.syncInProgress.set(false),
+    });
   }
 }

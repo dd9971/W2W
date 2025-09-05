@@ -1,8 +1,7 @@
 <button (click)="startInventorySync()">
   Start inventory synchronization
 </button>
+
 @if (syncInProgress()) {
-<p>Synchronization in progress...</p>
-} @else {
-<p>Idle</p>
+  <p>Synchronization in progress...</p>
 }

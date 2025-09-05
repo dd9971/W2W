@@ -4,11 +4,11 @@ import { TaskComponent } from './task/task.component';
 
 @Component({
   selector: 'app-root',
-  standalone : true,
+  standalone: true,
   imports: [RouterOutlet, TaskComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'],
 })
 export class App {
-  protected readonly title = signal('frontend');
+  title = signal('frontend');
 }
